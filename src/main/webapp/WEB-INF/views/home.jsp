@@ -9,11 +9,29 @@
 <html>
   <head>
     <title>학사관리 시스템</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css">
   </head>
   <body>
-    <h2>학사관리 시스템</h2>
-    <p><a href="${pageContext.request.contextPath}/credits">학년별 이수 학점 조회</a></p>
-    <p><a href="${pageContext.request.contextPath}/enroll">수강 신청하기</a></p>
-    <p><a href="${pageContext.request.contextPath}/enrollments">수강 신청 조회</a></p>
+    <div class="container">
+      <h1>학사관리 시스템</h1>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="${pageContext.request.contextPath}/credits" class="menu-link">
+            학년별 이수 학점 조회
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="${pageContext.request.contextPath}/enroll" class="menu-link">
+            수강 신청하기
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="${pageContext.request.contextPath}/enrollments" class="menu-link">
+            수강 신청 조회
+          </a>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>

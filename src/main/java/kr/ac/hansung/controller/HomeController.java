@@ -11,11 +11,6 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/credits")
-    public String showCredits() {
-        return "credits";
-    }
-
     @GetMapping("/enroll")
     public String showEnroll() {
         return "enroll";
