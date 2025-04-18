@@ -10,14 +10,4 @@ public class HomeController {
     public String showHome() {
         return "home";
     }
-
-    @GetMapping("/enroll")
-    public String showEnroll() {
-        return "enroll";
-    }
-
-    @GetMapping("/enrollments")
-    public String showEnrollments() {
-        return "enrollments";
-    }
 }

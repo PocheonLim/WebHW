@@ -5,8 +5,11 @@ import kr.ac.hansung.model.Courses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.Map;
@@ -66,5 +69,36 @@ public class CoursesController {
                 model.addAttribute("totalCredits", totalCredits);
 
                 return "creditDetail";
+        }
+
+        @GetMapping("/enroll")
+        public String showEnrollForm(Model model) {
+                model.addAttribute("courses", new Courses());
+                return "enroll";
+        }
+
+        @PostMapping("/enroll")
+        public String processEnrollment(@Valid Courses courses, BindingResult result) {
+                if (result.hasErrors()) {
+                        return "enroll";
+                }
+
+                try {
+                        coursesService.insertCourse(courses);
+                        return "redirect:/enrollments";
+                } catch (Exception e) {
+                        result.rejectValue("courseCode", "error.courses", "이미 존재하는 과목 코드입니다.");
+                        return "enroll";
+                }
+        }
+
+        @GetMapping("/enrollments")
+        public String showEnrollments(Model model) {
+                List<Courses> enrolledCourses = coursesService.getCoursesByYearAndSemester(2025, 2);
+                int totalCredits = enrolledCourses.stream().mapToInt(Courses::getCredit).sum();
+
+                model.addAttribute("courses", enrolledCourses);
+                model.addAttribute("totalCredits", totalCredits);
+                return "enrollments";
         }
 }

@@ -1,9 +1,7 @@
 package kr.ac.hansung.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,32 +15,37 @@ import lombok.ToString;
 @Table(name = "courses")
 public class Courses {
 
-    @NotNull
+    @NotNull(message = "년도를 입력해주세요.")
+    @Min(value = 2020, message = "2020년 이후의 년도만 입력 가능합니다.")
     private int year;
 
-    @NotNull
+    @NotNull(message = "학기를 입력해주세요.")
+    @Min(value = 1, message = "1 또는 2만 입력 가능합니다.")
+    @Max(value = 2, message = "1 또는 2만 입력 가능합니다.")
     private int semester;
 
     @Id
-    @NotNull
-    @Size(max = 20)
+    @NotNull(message = "과목 코드를 입력해주세요.")
+    @Size(min = 4, max = 20, message = "과목 코드는 4-20자 사이여야 합니다.")
     @Column(name = "course_code")
     private String courseCode;
 
-    @NotNull
-    @Size(max = 100)
+    @NotNull(message = "과목명을 입력해주세요.")
+    @Size(min = 2, max = 100, message = "과목명은 2-100자 사이여야 합니다.")
     @Column(name = "course_name")
     private String courseName;
 
-    @NotNull
-    @Size(max = 50)
+    @NotNull(message = "과목 구분을 선택해주세요.")
+    @Size(min = 2, max = 50, message = "과목 구분은 2-50자 사이여야 합니다.")
     @Column(name = "course_type")
     private String courseType;
 
-    @NotNull
-    @Size(max = 50)
+    @NotNull(message = "담당교수를 입력해주세요.")
+    @Size(min = 2, max = 50, message = "담당교수명은 2-50자 사이여야 합니다.")
     private String professor;
 
-    @NotNull
+    @NotNull(message = "학점을 선택해주세요.")
+    @Min(value = 1, message = "학점은 1-3 사이여야 합니다.")
+    @Max(value = 3, message = "학점은 1-3 사이여야 합니다.")
     private int credit;
 }
