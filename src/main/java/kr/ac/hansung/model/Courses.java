@@ -26,22 +26,22 @@ public class Courses {
 
     @Id
     @NotNull(message = "과목 코드를 입력해주세요.")
-    @Size(min = 4, max = 20, message = "과목 코드는 4-20자 사이여야 합니다.")
+    @Size(min = 4, max = 8, message = "과목 코드는 4-8자 사이여야 합니다.")
     @Column(name = "course_code")
     private String courseCode;
 
     @NotNull(message = "과목명을 입력해주세요.")
-    @Size(min = 2, max = 100, message = "과목명은 2-100자 사이여야 합니다.")
+    @Size(min = 2, max = 20, message = "과목명은 2-20자 사이여야 합니다.")
     @Column(name = "course_name")
     private String courseName;
 
     @NotNull(message = "과목 구분을 선택해주세요.")
-    @Size(min = 2, max = 50, message = "과목 구분은 2-50자 사이여야 합니다.")
+    @Size(min = 2, max = 20, message = "과목 구분은 2-20자 사이여야 합니다.")
     @Column(name = "course_type")
     private String courseType;
 
     @NotNull(message = "담당교수를 입력해주세요.")
-    @Size(min = 2, max = 50, message = "담당교수명은 2-50자 사이여야 합니다.")
+    @Size(min = 2, max = 20, message = "담당교수명은 2-20자 사이여야 합니다.")
     private String professor;
 
     @NotNull(message = "학점을 선택해주세요.")

@@ -17,27 +17,11 @@ public class CoursesService {
         return coursesDao.getAllCourses();
     }
 
-    public List<Courses> getCoursesByYear(int year) {
-        return coursesDao.getCoursesByYear(year);
-    }
-
     public List<Courses> getCoursesByYearAndSemester(int year, int semester) {
         return coursesDao.getCoursesByYearAndSemester(year, semester);
     }
 
-    public Courses getCourse(String courseCode) {
-        return coursesDao.getCourse(courseCode);
-    }
-
     public void insertCourse(Courses course) {
         coursesDao.insert(course);
-    }
-
-    public void updateCourse(Courses course) {
-        coursesDao.update(course);
-    }
-
-    public void deleteCourse(String courseCode) {
-        coursesDao.delete(courseCode);
     }
 }

@@ -6,40 +6,6 @@
 <head>
     <title>수강 신청하기</title>
     <link href="<c:url value='/resources/css/main.css'/>" rel="stylesheet" type="text/css">
-    <style>
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .form-control {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .error {
-            color: #ff0000;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-        .submit-btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-        }
-        .submit-btn:hover {
-            background-color: #45a049;
-        }
-    </style>
 </head>
 <body>
     <div class="container">

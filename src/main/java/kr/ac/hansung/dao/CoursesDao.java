@@ -15,9 +15,8 @@ public class CoursesDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Courses> getCoursesByYear(int year) {
-        return entityManager.createQuery("SELECT c FROM Courses c WHERE c.year = :year", Courses.class)
-                .setParameter("year", year)
+    public List<Courses> getAllCourses() {
+        return entityManager.createQuery("SELECT c FROM Courses c", Courses.class)
                 .getResultList();
     }
 
@@ -29,27 +28,7 @@ public class CoursesDao {
                 .getResultList();
     }
 
-    public Courses getCourse(String courseCode) {
-        return entityManager.find(Courses.class, courseCode);
-    }
-
-    public List<Courses> getAllCourses() {
-        return entityManager.createQuery("SELECT c FROM Courses c", Courses.class)
-                .getResultList();
-    }
-
     public void insert(Courses course) {
         entityManager.persist(course);
-    }
-
-    public void update(Courses course) {
-        entityManager.merge(course);
-    }
-
-    public void delete(String courseCode) {
-        Courses course = entityManager.find(Courses.class, courseCode);
-        if (course != null) {
-            entityManager.remove(course);
-        }
     }
 }
